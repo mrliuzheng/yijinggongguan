@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>逸璟公馆 资源画廊</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
   <style>
     body{font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; margin:20px; background:#f7f7f7}
     h1{margin-bottom:6px}
     .meta{margin-bottom:16px;color:#555}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-    figure{margin:0;background:#fff;border:1px solid #e6e6e6;padding:8px;border-radius:6px;display:flex;align-items:center;justify-content:center;height:160px;overflow:hidden}
-    img{max-width:100%;max-height:100%;object-fit:contain}
+    #mygallery a{display:inline-block}
+    #mygallery img{display:block;width:100%;height:auto;border-radius:6px}
+    .jg-row{background:transparent}
     a.doc{display:inline-block;margin-top:8px;padding:8px 12px;background:#0366d6;color:#fff;border-radius:6px;text-decoration:none}
     footer{margin-top:18px;color:#777;font-size:13px}
   </style>
@@ -19,31 +21,45 @@
   <h1>逸璟公馆 资源画廊</h1>
   <div class="meta">下面列出工作区中的图片与文档，直接点击图片可在浏览器中查看。</div>
   <p><a class="doc" href="中冶逸璟公馆 .docx">下载文档：中冶逸璟公馆.docx</a></p>
-  <div class="gallery">
-    <figure><img src="image1.jpeg" alt="image1"></figure>
-    <figure><img src="image10.jpeg" alt="image10"></figure>
-    <figure><img src="image11.jpeg" alt="image11"></figure>
-    <figure><img src="image12.jpeg" alt="image12"></figure>
-    <figure><img src="image13.jpeg" alt="image13"></figure>
-    <figure><img src="image14.jpeg" alt="image14"></figure>
-    <figure><img src="image15.jpeg" alt="image15"></figure>
-    <figure><img src="image16.jpeg" alt="image16"></figure>
-    <figure><img src="image17.jpeg" alt="image17"></figure>
-    <figure><img src="image18.jpeg" alt="image18"></figure>
-    <figure><img src="image19.jpeg" alt="image19"></figure>
-    <figure><img src="image2.jpeg" alt="image2"></figure>
-    <figure><img src="image20.jpeg" alt="image20"></figure>
-    <figure><img src="image21.jpeg" alt="image21"></figure>
-    <figure><img src="image22.jpeg" alt="image22"></figure>
-    <figure><img src="image23.jpeg" alt="image23"></figure>
-    <figure><img src="image3.png" alt="image3"></figure>
-    <figure><img src="image4.png" alt="image4"></figure>
-    <figure><img src="image5.jpeg" alt="image5"></figure>
-    <figure><img src="image6.jpeg" alt="image6"></figure>
-    <figure><img src="image7.jpeg" alt="image7"></figure>
-    <figure><img src="image8.jpeg" alt="image8"></figure>
-    <figure><img src="image9.jpeg" alt="image9"></figure>
+  <div id="mygallery">
+    <a data-fancybox="gallery" href="image1.jpeg"><img src="image1.jpeg" alt="image1"></a>
+    <a data-fancybox="gallery" href="image10.jpeg"><img src="image10.jpeg" alt="image10"></a>
+    <a data-fancybox="gallery" href="image11.jpeg"><img src="image11.jpeg" alt="image11"></a>
+    <a data-fancybox="gallery" href="image12.jpeg"><img src="image12.jpeg" alt="image12"></a>
+    <a data-fancybox="gallery" href="image13.jpeg"><img src="image13.jpeg" alt="image13"></a>
+    <a data-fancybox="gallery" href="image14.jpeg"><img src="image14.jpeg" alt="image14"></a>
+    <a data-fancybox="gallery" href="image15.jpeg"><img src="image15.jpeg" alt="image15"></a>
+    <a data-fancybox="gallery" href="image16.jpeg"><img src="image16.jpeg" alt="image16"></a>
+    <a data-fancybox="gallery" href="image17.jpeg"><img src="image17.jpeg" alt="image17"></a>
+    <a data-fancybox="gallery" href="image18.jpeg"><img src="image18.jpeg" alt="image18"></a>
+    <a data-fancybox="gallery" href="image19.jpeg"><img src="image19.jpeg" alt="image19"></a>
+    <a data-fancybox="gallery" href="image2.jpeg"><img src="image2.jpeg" alt="image2"></a>
+    <a data-fancybox="gallery" href="image20.jpeg"><img src="image20.jpeg" alt="image20"></a>
+    <a data-fancybox="gallery" href="image21.jpeg"><img src="image21.jpeg" alt="image21"></a>
+    <a data-fancybox="gallery" href="image22.jpeg"><img src="image22.jpeg" alt="image22"></a>
+    <a data-fancybox="gallery" href="image23.jpeg"><img src="image23.jpeg" alt="image23"></a>
+    <a data-fancybox="gallery" href="image3.png"><img src="image3.png" alt="image3"></a>
+    <a data-fancybox="gallery" href="image4.png"><img src="image4.png" alt="image4"></a>
+    <a data-fancybox="gallery" href="image5.jpeg"><img src="image5.jpeg" alt="image5"></a>
+    <a data-fancybox="gallery" href="image6.jpeg"><img src="image6.jpeg" alt="image6"></a>
+    <a data-fancybox="gallery" href="image7.jpeg"><img src="image7.jpeg" alt="image7"></a>
+    <a data-fancybox="gallery" href="image8.jpeg"><img src="image8.jpeg" alt="image8"></a>
+    <a data-fancybox="gallery" href="image9.jpeg"><img src="image9.jpeg" alt="image9"></a>
   </div>
   <footer>生成于本地工作区 — 文件位于当前文件夹。</footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script>
+    (function(){
+      if (window.jQuery) {
+        $('#mygallery').justifiedGallery({
+          rowHeight: 160,
+          lastRow: 'nojustify',
+          margins: 6
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
