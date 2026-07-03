@@ -50,6 +50,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="https://unpkg.com/mammoth@1.4.21/mammoth.browser.min.js"></script>
   <script>
     (function(){
       if (window.jQuery) {
@@ -59,6 +60,24 @@
           margins: 6
         });
       }
+    })();
+    // 文档渲染（使用 mammoth 在客户端将 docx 转为 HTML）
+    (function(){
+      var viewer = document.createElement('div');
+      viewer.id = 'doc-viewer';
+      viewer.style.marginTop = '20px';
+      var h = document.createElement('h2'); h.textContent = '文档预览';
+      document.body.insertBefore(h, document.getElementById('mygallery').nextSibling);
+      document.body.insertBefore(viewer, h.nextSibling);
+      fetch('document.docx').then(function(r){ return r.arrayBuffer(); }).then(function(ab){
+        mammoth.convertToHtml({arrayBuffer: ab}).then(function(result){
+          viewer.innerHTML = result.value;
+        }).catch(function(err){
+          viewer.innerHTML = '<p>无法渲染文档，<a href="document.docx">点击下载</a></p>';
+        });
+      }).catch(function(){
+        viewer.innerHTML = '<p>无法加载文档，<a href="document.docx">点击下载</a></p>';
+      });
     })();
   </script>
 </body>
