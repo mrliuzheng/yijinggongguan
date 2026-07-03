@@ -10,17 +10,47 @@
     body{font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; margin:20px; background:#f7f7f7}
     h1{margin-bottom:6px}
     .meta{margin-bottom:16px;color:#555}
-    #mygallery a{display:inline-block}
+    .intro-box{background:#fff;border-radius:16px;padding:22px;box-shadow:0 18px 48px rgba(23,28,51,.08);margin-bottom:18px}
+    .intro-box h2{margin-top:0;color:#111}
+    .intro-box p{max-width:46rem;color:#444;line-height:1.75;margin:12px 0 16px}
+    .intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .intro-card{background:#fafbff;border:1px solid rgba(3,102,214,.1);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .intro-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+    .intro-card h3{font-size:1rem;margin:14px 16px 6px;color:#0d2b5b}
+    .intro-card p{font-size:.94rem;margin:0 16px 16px;color:#4d5576;line-height:1.65}
+    .intro-keypoints{display:grid;gap:10px;margin-top:20px}
+    .intro-keypoint{display:flex;gap:12px;align-items:flex-start}
+    .intro-keypoint strong{min-width:92px;color:#0a2c6d}
+    #doc-viewer{background:#fff;padding:20px;border-radius:14px;box-shadow:0 18px 42px rgba(23,28,51,.08);margin-top:16px;line-height:1.75;color:#333}
+    #doc-viewer h3{margin-top:0;color:#0d2b5b}
+    #mygallery{max-width:1200px;margin:0 auto}
+    #mygallery a{display:inline-block;width:calc(33.333% - 10px);margin:5px}
     #mygallery img{display:block;width:100%;height:auto;border-radius:6px}
+    @media (max-width: 980px) {#mygallery a{width:calc(50% - 10px)}}
+    @media (max-width: 620px) {#mygallery a{width:100%;margin:5px 0}}
     .jg-row{background:transparent}
-    a.doc{display:inline-block;margin-top:8px;padding:8px 12px;background:#0366d6;color:#fff;border-radius:6px;text-decoration:none}
-    footer{margin-top:18px;color:#777;font-size:13px}
+    footer{margin-top:18px;color:#777;font-size:13px;text-align:center}
   </style>
 </head>
 <body>
   <h1>逸璟公馆 资源画廊</h1>
   <div class="meta">下面列出工作区中的图片与文档，直接点击图片可在浏览器中查看。</div>
-  <p><a class="doc" href="中冶逸璟公馆 .docx">下载文档：中冶逸璟公馆.docx</a></p>
+  <section class="intro-box">
+    <h2>中冶逸璟公馆简介</h2>
+    <p>广州主城区唯一在售的城公馆院居，48席现楼实景，容积率0.88、绿化率50%、纯东南向布局。项目定位低密珍藏级私宅，融合古代皇宫礼制、中式庭院与现代大湾区生活配套。</p>
+    <div class="intro-grid">
+      <div class="intro-card"><img src="image1.jpeg" alt="项目外观"><h3>稀缺公馆</h3><p>占地1.2万㎡、建筑面积1万㎡，230-252㎡奢宅户型，使用面积600-1000㎡，适合全球藏家。</p></div>
+      <div class="intro-card"><img src="image10.jpeg" alt="低容积率"><h3>低容积率</h3><p>容积率0.88，绿化率50%，广州主城区少有的低密度院落式住宅。</p></div>
+      <div class="intro-card"><img src="image12.jpeg" alt="东方院落"><h3>纯东南向</h3><p>每户享受南北通透与院落风景，传承古代宫廷布局，打造东方礼制私宅。</p></div>
+      <div class="intro-card"><img src="image14.jpeg" alt="配套服务"><h3>奢华配套</h3><p>国际金铂联盟管家、24小时礼宾、专属车位与五星节日服务，全程尊崇。</p></div>
+    </div>
+    <div class="intro-keypoints">
+      <div class="intro-keypoint"><strong>区位优势</strong><span>广州文脉福地，5公里直达Canton Tower，临近珠江新城、琶洲CBD。</span></div>
+      <div class="intro-keypoint"><strong>交通配套</strong><span>邻近地铁2号线江泰路、8号线宝岗大道、广佛7号线琶洲站，快速连通全城。</span></div>
+      <div class="intro-keypoint"><strong>教育医疗</strong><span>周边红棉花园小学、市七中、南武中学、南方医科大学附属医院等优质资源。</span></div>
+      <div class="intro-keypoint"><strong>建筑理念</strong><span>借鉴皇宫院落与古典礼制，营造“千年中国人居理想”的当代东方府邸。</span></div>
+    </div>
+  </section>
   <div id="mygallery">
     <a data-fancybox="gallery" href="image1.jpeg"><img src="image1.jpeg" alt="image1"></a>
     <a data-fancybox="gallery" href="image10.jpeg"><img src="image10.jpeg" alt="image10"></a>
@@ -73,10 +103,10 @@
         mammoth.convertToHtml({arrayBuffer: ab}).then(function(result){
           viewer.innerHTML = result.value;
         }).catch(function(err){
-          viewer.innerHTML = '<p>无法渲染文档，<a href="document.docx">点击下载</a></p>';
+          viewer.innerHTML = '<p>无法渲染文档。</p>';
         });
       }).catch(function(){
-        viewer.innerHTML = '<p>无法加载文档，<a href="document.docx">点击下载</a></p>';
+        viewer.innerHTML = '<p>文档加载失败。</p>';
       });
     })();
   </script>
